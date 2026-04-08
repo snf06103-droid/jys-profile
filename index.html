@@ -28,10 +28,12 @@
     <script src="./js/bbyong.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
 </head>
 <body>
-    <div class="hero">
+    <div class="hero water-container">
         <div class="common-frame">
             <h1 class="hero-txt1 ">Detail Driven</h1>
             <div class="hero-txt2">
@@ -40,6 +42,21 @@
             </div>
         </div>
     </div>
+
+    <!-- 물결 일렁임 효과 -->
+    <script>
+        $(document).ready(function() {
+            try {
+                $('.water-container').ripples({
+                    resolution: 512,  // 해상도 (높을수록 부드러움)
+                    dropRadius: 15,   // 물방울 크기
+                    perturbance: 0.03, // 일렁임 강도 (숫자가 작을수록 잔잔함)
+                });
+            } catch (e) {
+                console.error("WebGL을 지원하지 않는 브라우저입니다.");
+            }
+        });
+    </script>
 
     <div class="profile">
         <div class="common-frame">
