@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>물결 일렁임 효과</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #FFFBFA; /* 기본 배경색 */
+        }
+
+        /* 이미지가 들어갈 컨테이너 */
+        .water-container {
+            width: 600px;  /* 이미지 가로 사이즈에 맞춰 조절 */
+            height: 600px; /* 이미지 세로 사이즈에 맞춰 조절 */
+            margin: 50px auto;
+            /* 배경 이미지 설정 (사용자님의 이미지 경로로 수정하세요) */
+            background-image: url('./img/hero-bg-flower.png');
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="water-container"></div>
+
+    <script>
+        $(document).ready(function() {
+            try {
+                $('.water-container').ripples({
+                    resolution: 512,  // 해상도 (높을수록 부드러움)
+                    dropRadius: 20,   // 물방울 크기
+                    perturbance: 0.04, // 일렁임 강도 (숫자가 작을수록 잔잔함)
+                });
+            } catch (e) {
+                console.error("WebGL을 지원하지 않는 브라우저입니다.");
+            }
+        });
+    </script>
+</body>
+</html>
