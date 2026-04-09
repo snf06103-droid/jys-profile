@@ -22,13 +22,17 @@ p{
     min-height: 700px;
     linear-gradient:(rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0) 90%);
     background: url(../img/hero-bg-flower.png) no-repeat 50% 40% / cover ;
-    color: #A5CD9C;
+    /* color: #A5CD9C; */
+    /* color: #4F6F52; */
+    /* color: #799E78; */
+    /* color: #8D7B68; */
+    color: #8EB58A;
     overflow: hidden;
 }
 .hero-txt2{
     display: flex;
     justify-content: space-between;
-    color: #000;
+    color: #533553;
 }
 .hero-txt1 {
     padding: 1rem 0;
@@ -195,6 +199,52 @@ p{
 }
 .popup-txt h3{
     
+}
+
+
+/* 1. 애니메이션 정의: 블러가 사라지며 선명해짐 */
+@keyframes blurReveal {
+    0% {
+        filter: blur(18px);  /* 아주 흐릿하게 시작 */
+        opacity: 0;          /* 투명하게 */
+        transform: scale(1.1); /* 살짝 커진 상태에서 */
+    }
+    100% {
+        filter: blur(0);     /* 선명하게 */
+        opacity: 1;          /* 불투명하게 */
+        transform: scale(1);   /* 정사이즈로 */
+    }
+}
+
+/* 2. 메인 타이틀에 적용 */
+.hero-txt1 {
+    /* 기존 스타일 유지 */
+    font-size: calc(100vw / 7.9);
+    font-weight: 700;
+    color: #8EB58A;
+    text-align: center;
+    line-height: 1;
+    padding: 0;
+    
+    /* 애니메이션 설정: 2초 동안 부드럽게 실행 */
+    animation: blurReveal 2s cubic-bezier(0.21, 1, 0.22, 1) forwards;
+    will-change: filter, opacity; /* 브라우저 렌더링 최적화 */
+}
+
+/* 3. 하단 텍스트도 시간 차를 두고 나타나게 (선택 사항) */
+.hero-txt2 {
+    opacity: 0;
+    animation: blurReveal 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: 0.8s; /* 타이틀이 나오고 0.8초 뒤에 시작 */
+    padding-bottom: 2rem;
+}
+
+.water-container>.common-frame{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2rem;
 }
 
 
