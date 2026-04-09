@@ -309,6 +309,16 @@ p{
     .exp-title h2{
         font-size: 2.5rem;
     }
+    .popup-contents{
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .popup-txt{
+        width: auto;
+    }
+    .popup-station{
+        width: auto;
+    }
 }
 
 @media (max-width:320px){
