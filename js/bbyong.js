@@ -1,116 +1,84 @@
-function removeSpaces(str) {
-    return str.replace(/\s+/g, '');
-}
 
+// 공통 함수
 function getContentByBr(element) {
-    const contentArray = element.innerHTML
-      .split(/<br\s*\/?>/i)
-      .map(item => item.trim())
-      .filter(item => item)
-    return contentArray;
+    return element.innerHTML
+        .split(/<br\s*\/?>/i)
+        .map(item => item.trim())
+        .filter(item => item);
 }
 
 function getFontStyles(element) {
-  
-    // 계산된 스타일 가져오기
     const computedStyle = window.getComputedStyle(element);
-  
-    // font-size와 line-height 값 가져오기
     let fontSize = computedStyle.fontSize;
     let lineHeight = computedStyle.lineHeight;
-  
-    // line-height가 'normal'일 경우 계산 (대략적으로 1.2 배율로 가정)
+
     if (lineHeight === 'normal') {
-      const fontSizeValue = parseFloat(fontSize); // '16px' -> 16
-      lineHeight = `${fontSizeValue * 1.2}px`; // 기본적으로 1.2 배율로 계산
+        const fontSizeValue = parseFloat(fontSize);
+        lineHeight = `${fontSizeValue * 1.2}px`;
     }
-  
     return { fontSize, lineHeight };
 }
 
-document.addEventListener("DOMContentLoaded",function(){
+// 메인 실행부
+document.addEventListener("DOMContentLoaded", function () {
     
-    let tags = document.querySelectorAll(".bbyong")
-    if(tags.length){
-        tags.forEach(function(tag,index){
-            let resultContent = ""
-            let textarray = getContentByBr(tag)
-            let originalStyles = getFontStyles(tag)
+    /* 텍스트 뿅 애니메이션 (.bbyong)  */
+    const bbyongTags = document.querySelectorAll(".bbyong");
+    
+    bbyongTags.forEach((tag) => {
+        const textArray = getContentByBr(tag);
+        const styles = getFontStyles(tag);
+        let resultContent = "";
 
-            let defaultStyles = {
-                display:'inline-block',
-                overflow:'hidden',
-                height:originalStyles.lineHeight,
-                boxSizing:'border-box',
-                paddingTop:originalStyles.lineHeight
-            }
-
-            // let showStyles = {
-            //     maxHeight:originalStyles.lineHeight
-            // }
-
-            for(let i=0 ; i<textarray.length ; i++){
-                resultContent += `<span style="transition:all 1s ease ${0.1*i}s">${textarray[i]}</span>`
-                if(i!==textarray.length-1){
-                    resultContent += `<br>`
-                }
-            }
-            tag.innerHTML = resultContent
-            Array.from(tag.children).forEach(child => {
-                Object.assign(child.style, defaultStyles)
-            });
-        })
-    }
-
-    tags.forEach(function(tag,index){
-        let originalStyles = getFontStyles(tag)
-        console.log(originalStyles)
-        tag.style.fontSize=0
-        Array.from(tag.children).forEach(function (child, index) {
-            child.style.fontSize = originalStyles.fontSize // 원래 글씨 크기 적용
+        // span으로 쪼개기
+        textArray.forEach((text, i) => {
+            resultContent += `<span style="
+                display:inline-block; 
+                overflow:hidden; 
+                height:${styles.lineHeight}; 
+                padding-top:${styles.lineHeight}; 
+                transition: all 1s ease ${0.1 * i}s;
+                font-size:${styles.fontSize};
+                box-sizing: border-box;
+            ">${text}</span>`;
+            if (i !== textArray.length - 1) resultContent += `<br>`;
         });
-    })
 
-    // IntersectionObserver 설정
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // 요소가 화면에 보일 때 span 태그 스타일 변경
-                Array.from(entry.target.children).forEach(child => {
-                    Object.assign(child.style, {
-                         paddingTop:0,
-                    });
-                });
-            } else {
-                // 화면에서 사라질 때 기본 스타일로 되돌림
-                Array.from(entry.target.children).forEach(child => {
-                    const computedStyle = getComputedStyle(child);
-                    let lineHeight = computedStyle.lineHeight;
-    
-                    // "normal"인 경우 계산
-                    if (lineHeight === "normal") {
-                        const fontSize = parseFloat(computedStyle.fontSize); // font-size 가져오기
-                        const defaultLineHeightRatio = 1.2; // 일반적인 비율(조정 가능)
-                        lineHeight = `${fontSize * defaultLineHeightRatio}px`;
-                    }
-    
-                    Object.assign(child.style, {
-                        paddingTop: lineHeight, // 계산된 line-height 적용
-                    });
-                });
-            }
-        })
-    }, { threshold: 1 }) // 요소가 100% 화면에 보이면 트리거
-
-    // 각 요소에 대해 observer 적용
-    tags.forEach(element => {
-       observer.observe(element);
+        tag.innerHTML = resultContent;
+        tag.style.fontSize = "0"; // 부모 폰트 사이즈 제거 (공백 방지)
     });
 
+    // 뿅 텍스트 감시자
+    const bbyongObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                Array.from(entry.target.children).forEach(child => {
+                    if (child.tagName === 'SPAN') child.style.paddingTop = "0";
+                });
+            } else {
+                const styles = getFontStyles(entry.target);
+                Array.from(entry.target.children).forEach(child => {
+                    if (child.tagName === 'SPAN') child.style.paddingTop = styles.lineHeight;
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    bbyongTags.forEach(tag => bbyongObserver.observe(tag));
 
 
+    /* 오리배 느낌나는 리스트 애니메이션 (.fade-in-floating) */
+    const floatingItems = document.querySelectorAll(".fade-in-floating");
 
+    const floatingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                // floatingObserver.unobserve(entry.target); // 한 번 나오면 끝
+            }
+        });
+    }, { threshold: 0.2 });
 
-    
-    
-})
+    floatingItems.forEach(item => floatingObserver.observe(item));
+
+});
