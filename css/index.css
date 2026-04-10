@@ -304,42 +304,146 @@ p{
 }
 
 
-/* 팝업 슬라이트 */
-.popup{
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 팝업 슬라이드----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.popup {
     margin-top: 6rem;
     padding-top: 6rem;
-    /* background: url(../img/32f9c88df2dd548431f1ec59f6e7bb98.jpg) no-repeat 50% 50% / cover; */
-    /* background-color: #8189aa; */
+    padding-bottom: 6rem;
+    background: url(../img/pattern-check.png) repeat 0 0,
+    url(../img/bg-box-80.jpg) no-repeat 0 calc(100% - 191px) / 100% 540px;
 }
 .popup h2{
     font-size: 5rem;
     font-weight: 700;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     text-align: center;
 }
 .popup h2+p{
     text-align: center;
     font-weight: 500;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
 }
-.popup h2+p+P{
+.popup h2+p+p{
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 8rem;
 }
 .popup-contents{
     display: flex;
-    gap: 177px;
+    gap:177px;
 }
 .popup-txt{
-    width: 430px;
+    width:430px;
+    color:#fff;
 }
 .popup-station{
-    width: calc(100% - 430px - 177px);
+    width:calc(100% - 430px - 177px);
 }
 .popup-txt h3{
+    font-size:1.5rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+.popup-txt p{
+    margin-top: 1rem;
+}
+.popup-img-slider .swiper-wrapper{
+    transition-timing-function: linear;
+}
+.popup-img-slider .swiper-slide.swiper-slide-active{
+    /* border:2px solid lime; */
+}
+.popup-txt-slider .swiper-slide{
+    background-color: #b0beaa;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 포스터섹션--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.poster {
+    padding-top: 6rem;
+    border-top: 1px solid #3437c5;
+}
+.poster .common-frame{
+    display: flex;
+    gap:172px;
+    align-items: flex-start;
+}
+.poster-title{
+    width:734px;
+    position: sticky;
+    top:6rem;
+    left:0;
     
 }
+.poster-title h2{
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.poster-title h2+p{
+    font-size:3rem;
+    margin-bottom: 3rem;
+}
+
+.poster-list{
+    flex:1;
+    display: flex;
+    flex-direction: column;    
+    gap:6rem;
+}
+.poster-list>li{
+    display: flex;
+    gap:107px;
+}
+.poster-list>li:nth-of-type(2n){
+    flex-direction: row-reverse;
+}
+.poster-list>li figure{
+    width:500px;
+    flex-shrink: 0;
+}
+.poster-txt{
+    flex:1;
+    padding-top: 5rem;
+}
+.poster-txt h3{
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+.poster-txt p{
+    margin-top: 1rem;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 배너디자인섹션------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+.banner{
+    padding:6rem 0;
+    background-color: #3437c5;
+    color:#fff;
+    text-align: center;
+    margin-top: 6rem;
+}
+.banner h2{
+    font-size:5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.banner h2+p{
+    font-size:3rem;
+    margin-bottom: 3rem;
+}
+.banner h2+p+p{
+    margin-bottom: 3rem;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 상세페이지 디자인 섹션------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
 
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -383,6 +487,9 @@ p{
 .fade-in-floating.visible:nth-child(4) { animation-delay: 0.55s; }
 .fade-in-floating.visible:nth-child(5) { animation-delay: 0.7s; }
 
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 반응형---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media (max-width:1600px){
     .hero-txt1 {

@@ -27,6 +27,7 @@
 
     <script src="./js/bbyong.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     
 </head>
@@ -206,13 +207,14 @@
         </div>
     </div>
 
+    <!-- 팝업 디자인 섹션 -->
     <div class="popup">
         <div class="common-frame">
             <h2>Popup Designs</h2>
             <p>{ Point of Focus }</p>
             <p>가로사이즈 500px로 짧은 순간 사용자의 시선을 낚아채는 매력적인 디자인을 제작해보았습니다.</p>
             <div class="popup-contents">
-                <div class="poppup-txt">
+                <div class="popup-txt">
                     <div class="swiper popup-txt-slider">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -248,32 +250,235 @@
                         </div>
                     </div>
                     <script>
-                        const popupTxtSlider = new Swiper(".popup-txt-slider")
+                        const popupTxtSlider = new Swiper(".popup-txt-slider",{
+                            effect:"fade",
+                            allowTouchMove: false,
+                        })
                     </script>
                 </div>
                 <div class="popup-station">
                     <div class="swiper popup-img-slider">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="./img/popup/christmas.jpg" alt="크리스마스 테마 팝업">
+                                <img src="./img/popup/christmas.jpg" alt="크리스마 팝업">
                             </div>
-                            <div class="swiper-slide"><img src="./img/popup/skincare.jpg" alt="뷰티 브랜드 팝업"></div>
-                            <div class="swiper-slide"><img src="./img/popup/blackfriday.jpg" alt="블랙 프라이데이 팝업"></div>
-                            <div class="swiper-slide"><img src="./img/popup/nike.jpg" alt="나이키 팝업"></div>
-                            <div class="swiper-slide"><img src="./img/popup/shoes.jpg" alt="슈즈 브랜드 팝업"></div>
-                            <div class="swiper-slide"><img src="./img/popup/chris-2.jpg" alt="크리스마스 팝업"></div>
+                            <div class="swiper-slide">
+                                <img src="./img/popup/skincare.jpg" alt="뷰티 브랜드 팝업">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/popup/blackfriday.jpg" alt="블랙 프라이데이 팝업">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/popup/nike.jpg" alt="나이키 팝업">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/popup/shoes.jpg" alt="슈즈 브랜드 팝업">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/popup/chris-2.jpg" alt="크리스마스 팝업">
+                            </div>
                         </div>
                     </div>
                     <script>
-                        const popupSlider = new Swiper(".popup-txt-slider")
+                        const popupImgSlider = new Swiper(".popup-img-slider",{
+                            // centeredSlides: true,
+                            speed:7000,
+                            autoplay:{
+                                delay:0
+                            },
+                            loop:true,
+                            slidesPerView: 1.4,
+                            spaceBetween: 14,
+                            // Responsive breakpoints
+                            breakpoints: {
+                                // when window width is >= 320px
+                                320: {
+                                slidesPerView: 1.6,
+                                spaceBetween: 14
+                                },
+                                // when window width is >= 480px
+                                480: {
+                                slidesPerView: 1.6,
+                                spaceBetween: 14
+                                },
+                                // when window width is >= 640px
+                                1200: {
+                                slidesPerView: 1.7,
+                                spaceBetween: 20
+                                },
+                                1400: {
+                                slidesPerView: 2.2,
+                                spaceBetween: 20
+                                },
+                            }
+                        })
+
+                            popupImgSlider.on('slideChange', function () {
+                                // console.log(event1ImgSlider.realIndex);
+                                popupTxtSlider.slideTo(popupImgSlider.realIndex, 1000)
+                            });
                     </script>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 포스터 디자인 섹션 -->
+     <div class="poster">
+        <div class="common-frame">
+            <ul class="poster-list">
+                <li>
+                    <figure>
+                        <img src="./img/poster/can-poster.jpg" alt="KIRIN">
+                    </figure>
+                    <div class="poster-txt">
+                        <h3>KIRIN</h3>
+                        <p>팝아트적인 블루 톤과 과감한 수직 타이포그래피를 사용하여 청량함과 역동적인 브랜드 이미지를 강조했습니다. </p>
+                        <p>하프톤 패턴 배경과 과일 소스를 레이어드해 시각적인 재미와 함께 트렌디한 스트릿 감성을 담았습니다.</p>
+                    </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/poster/cafe-poster.jpg" alt="Inner Voice">
+                    </figure>
+                    <div class="poster-txt">
+                        <h3>VELOLA</h3>
+                        <p>차분한 아이보리 톤과 깊은 네이비 컬러를 매치해 프리미엄 카페의 고급스럽고 정갈한 이미지를 연출했습니다</p>
+                        <p>제품의 그림자를 살린 배치와 필기체 포인트가 조화를 이루어 감성적인 무드가 돋보이는 디자인입니다.</p>
+                    </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/poster/appli-posrer.jpg" alt="VELOLA">
+                    </figure>
+                    <div class="poster-txt">
+                        <h3>Daily Apple</h3>
+                        <p>강렬한 레드 배경과 대비되는 화이트 타이포그래피로 '하루 한 알의 사과'라는 건강한 메시지를 직관적으로 전달합니다. </p>
+                        <p>클래식한 세리프 서체와 하단의 텍스트 배치를 통해 마치 잡지 광고 같은 세련된 레이아웃을 완성했습니다.</p>
+                    </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/poster/cream-poster.jpg" alt="Essence of the Message">
+                    </figure>
+                    <div class="poster-txt">
+                        <h3>LAIT PUR</h3>
+                        <p>웅장한 자연경관 배경 위에 산뜻한 옐로우 타이포를 얹어, 자연 유래 성분의 순수함과 생명력을 표현했습니다.</p>
+                        <p>광활한 풍경과 대비되는 제품의 클로즈업 배치를 통해 브랜드가 지향하는 깨끗하고 건강한 가치를 전달합니다</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="poster-title">
+                <h2>Poster Designs</h2>
+                <p>{  Essence of the Message  } </p>
+                <p>시선을 사로잡는 디자인 너머에 있는 메시지의 본질에 집중하여,
+                기억에 남는 시각적 경험을 디자인 해보았습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 배너 디자인 -->
+     <div class="banner">
+        <div class="common-frame">
+            <h2>Banner Designs</h2>
+            <p>{  Point of Focus  }</p>
+            <p>hero섹션에 들어가는 배너디자인을 1920x700 사이즈로 제작해보았습니다.</p>
+            <div class="swiper banner-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/banner/nike.jpg" alt="나이키 배너">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/banner/christmas.jpg" alt="크리스마스 배너">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/banner/air-pods.jpg" alt="에어팟배너">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/banner/black-friday.jpg" alt="블랙프라이데이배너">
+                    </div>
+                </div>
+            </div>
+            <script>
+                const bannerSlider = new Swiper(".banner-slider",{
+                    autoplay:{
+                        delay:3000
+                    },
+                    speed:1000,
+                    loop:true
+                })
+            </script>
+
+
+        </div>
+    </div>
+
+    <!-- 상세페이지 디자인 -->
+    <div class="detail">
+        <div class="common-frame">
+            <h2>Detail Designs</h2>
+            <p class="pf1">{  Product Detail Page  }</p>
+            <p>가상의 상품에 대한 상세페이지를 AI어시스턴스와 디자인 툴 포토샵 일러스트레이터를 사용하여 디자인해보았습니다.</p>
+            <div class="swiper detail-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="./img/detail/chair.jpg" alt="의자 디테일페이지 섬네일">
+                        </figure>
+                        <h4>Brand Concept Planning</h4>
+                        <h5 class="fwb">기획부터 비주얼 완성까지, 직접 설계한 로션 상세페이지</h5>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="./img/detail-headset-thumb.jpg" alt="헤드셋 디테일페이지 섬네일">
+                        </figure>
+                        <h4>Where Elegance Meets Next-Gen Technology</h4>
+                        <h5 class="fwb">기술과 감각의 공존, 직접 설계한 무선 헤드셋 상세페이지</h5>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="./img/detail-chair-thumb.jpg" alt="의자 디테일페이지 섬네일">
+                        </figure>
+                        <h4>The Art of Ergonomic Seating & Human-Centered Design</h4>
+                        <h5 class="fwb">업무의 질을 바꾸는 설계, 직접 기획한 프리미엄 오피스 체어 상세페이지</h5>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const detailSwiper = new Swiper(".detail-swiper",{
+                    speed:1000,
+                    slidesPerView: 1.2,
+                    spaceBetween: 14,
+                    // Responsive breakpoints
+                    breakpoints: {
+                        // when window width is >= 320px
+                        320: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 14
+                        },
+                        // when window width is >= 480px
+                        480: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 14
+                        },
+                        // when window width is >= 640px
+                        1200: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 20
+                        },
+                        1400: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                        },
+                    }
+                })
+            </script>
+        </div>
+    </div>
+
     <!-- 라이브러리 배치 -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
 
