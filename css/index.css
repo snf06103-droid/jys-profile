@@ -217,7 +217,7 @@ p{
     grid-template-columns: 1fr 1fr;
 }
 .co ul li{
-    border: .5px solid #A5CD9C;
+    border: 2px solid #A5CD9C;
 }
 /* 글래스모피즘(유리재질) 리스트 스타일 */
 /* .co ul li {
@@ -300,6 +300,7 @@ p{
     font-size: 5rem;
     font-weight: 700;
     color: #2D3250;
+    color: #4A5447;
 }
 .exp-title p{
     flex: 1;
@@ -328,8 +329,6 @@ p{
     margin-top: 6rem;
     padding-top: 6rem;
     padding-bottom: 6rem;
-    background: url(../img/pattern-check.png) repeat 0 0,
-    url(../img/bg-box-80.jpg) no-repeat 0 calc(100% - 191px) / 100% 540px;
 }
 .popup h2{
     font-size: 5rem;
