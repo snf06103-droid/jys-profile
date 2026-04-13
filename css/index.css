@@ -321,6 +321,41 @@ p{
     border-bottom: 1px solid #000;
     text-transform: capitalize;
 }
+.glass-box {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+.glass-box {
+     position: relative;
+    overflow: hidden; 
+}
+
+.glass-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
 
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -666,6 +701,7 @@ p{
         width:600px;
     }
 }
+
 @media (max-width:1700px){
     .popup {
         background: url(../img/pattern-check.png) repeat 0 0,
@@ -694,6 +730,7 @@ p{
 
 
 }
+
 @media (max-width:1600px){
     .popup {
         background: url(../img/pattern-check.png) repeat 0 0,
@@ -718,52 +755,6 @@ p{
     }
 }
 
-
-
-
-.glass-box {
-    padding: 10px;
-  /* width: 400px; */
-  /* height: 500px; */
-  /* 반투명한 흰색 배경 */
-  background: rgba(255, 255, 255, 0.1); 
-  /* 배경 흐림 효과 (유리 느낌의 핵심) */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  /* 얇은 흰색 테두리로 유리 단면 표현 */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  /* 부드러운 그림자 */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-.glass-box {
-  position: relative;
-  overflow: hidden; /* 빛이 박스 밖으로 나가지 않게 설정 */
-}
-
-.glass-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 50%;
-  height: 100%;
-  /* 사선 모양의 빛 줄기 */
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-25deg);
-  animation: shine 3s infinite;
-}
-
-@keyframes shine {
-  0% { left: -150%; }
-  100% { left: 150%; }
-}
-
 @media (max-width:1440px){
     .profile1{
         gap: 1rem;
@@ -775,11 +766,13 @@ p{
         top: 3rem;
     }
 }
+
 @media (max-width:1406px){
     .hero-txt1 {
         font-size: calc(100vw/8.1);
     }
 }
+
 @media (max-width:1400px){
     .popup {
         background: url(../img/pattern-check.png) repeat 0 0,
