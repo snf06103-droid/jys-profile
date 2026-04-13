@@ -387,7 +387,7 @@ p{
 }
 .popup-txt{
     width:430px;
-    color:#fff;
+    color:#4A5447;
 }
 .popup-station{
     width:calc(100% - 430px - 177px);
@@ -477,8 +477,8 @@ p{
 /* 배너디자인섹션------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .banner{
     padding:6rem 0;
-    background-color: #3437c5;
-    color:#fff;
+    background-color: #e6ffd8;
+    color:#4A5447;
     text-align: center;
     margin-top: 6rem;
 }
@@ -525,7 +525,7 @@ p{
     filter: brightness(0.4);
 }
 .detail-swiper figure:after{
-    color:#fff;
+    color:#4A5447;
     font-size:1.5rem;
     font-weight: 700;
     content:"click!";
