@@ -95,7 +95,7 @@ p{
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 /* 프로필 어바웃미 섹션-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .profile{
-    margin-top: 10rem;
+    margin-top: 6rem;
 }
 .pro-title{
     display: flex;
@@ -107,7 +107,7 @@ p{
     flex: 1;
 }
 .pro-title h2{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: var(--fw-bold);
     /* color: #2D3250; */
     color: #333333;
@@ -214,7 +214,7 @@ p{
 .profile-desc-grid{
     padding-top: 3rem;
     display: grid;
-    gap: 3rem 1rem;
+    gap: 3rem 2rem;
     grid-template-columns: 1fr 1fr;
 }
 .co ul li{
@@ -298,7 +298,7 @@ p{
 }
 .exp-title h2{
     flex: 1;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #2D3250;
     color: #4A5447;
@@ -367,7 +367,7 @@ p{
     padding-bottom: 6rem;
 }
 .popup h2{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -375,42 +375,32 @@ p{
 .popup h2+p{
     text-align: center;
     font-weight: 500;
-    font-size: 3rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
 }
 .popup h2+p+p{
     text-align: center;
     margin-bottom: 8rem;
 }
-.popup-contents{
-    display: flex;
-    gap:177px;
-}
-.popup-txt{
-    width:430px;
-    color:#4A5447;
-}
-.popup-station{
-    width:calc(100% - 430px - 177px);
-}
-.popup-txt h3{
-    font-size:1.5rem;
-    margin-bottom: 3rem;
-    font-weight: 700;
-}
-.popup-txt p{
-    margin-top: 1rem;
-}
-.popup-img-slider .swiper-wrapper{
-    transition-timing-function: linear;
-}
-.popup-img-slider .swiper-slide.swiper-slide-active{
-    /* border:2px solid lime; */
-}
-.popup-txt-slider .swiper-slide{
-    background-color: #b0beaa;
+.popup .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
+.popup .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+}
+
+.popup .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 포스터섹션--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -431,12 +421,12 @@ p{
     
 }
 .poster-title h2{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 .poster-title h2+p{
-    font-size:3rem;
+    font-size:1.5rem;
     margin-bottom: 3rem;
 }
 
@@ -484,12 +474,12 @@ p{
     margin-top: 6rem;
 }
 .banner h2{
-    font-size:5rem;
+    font-size:3rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 .banner h2+p{
-    font-size:3rem;
+    font-size:1.5rem;
     margin-bottom: 3rem;
 }
 .banner h2+p+p{
@@ -504,7 +494,7 @@ p{
     margin-bottom: 6rem;
 }
 .detail h2{
-    font-size:5rem;
+    font-size:3rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;

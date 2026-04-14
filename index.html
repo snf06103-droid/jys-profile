@@ -233,7 +233,7 @@
                 <h2>Popup Designs</h2>
                 <p>{ Point of Focus }</p>
                 <p>가로사이즈 500px로 짧은 순간 사용자의 시선을 낚아채는 매력적인 디자인을 제작해보았습니다.</p>
-                <div class="popup-contents">
+                <!-- <div class="popup-contents">
                     <div class="popup-txt">
                         <div class="swiper popup-txt-slider">
                             <div class="swiper-wrapper">
@@ -339,7 +339,55 @@
                                 });
                         </script>
                     </div>
+                </div> -->
+                <div class="swiper mySwiper ">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./img/popup/christmas.jpg"alt="크리스마 팝업">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/popup/nike.jpg" alt="나이키 팝업">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/popup/shoes.jpg" alt="슈즈 브랜드 팝업">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/popup/skincare.jpg" alt="뷰티 브랜드 팝업">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/popup/blackfriday.jpg" alt="블랙 프라이데이 팝업">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./img/popup/chris-2.jpg" alt="크리스마스 팝업">
+                        </div>
+                    </div>
+                    <!-- <div class="swiper-pagination"></div> -->
                 </div>
+                <script>
+                    var swiper = new Swiper(".mySwiper", {
+                    loop: true,
+                    autoplay: {
+                        delay: 1800, // 2.5초마다 슬라이드 전환
+                        disableOnInteraction: false, // 마우스로 직접 넘겨도 자동 재생이 멈추지 않음
+                    },
+                    speed: 1000, // 슬라이드 전환 애니메이션 속도 (1초 동안 부드럽게)
+                    effect: "coverflow",
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: "auto",
+                    coverflowEffect: {
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                    },
+                  
+                    });
+                </script>
             </div>
         </div>
     
@@ -601,7 +649,7 @@
             $('.water-container').ripples({
                 resolution: 512,  // 해상도 (높을수록 부드러움)
                 dropRadius: 15,   // 물방울 크기
-                perturbance: 0.03, // 일렁임 강도 (숫자가 작을수록 잔잔함)
+                perturbance: 0.02, // 일렁임 강도 (숫자가 작을수록 잔잔함)
             });
         } catch (e) {
             console.error("WebGL을 지원하지 않는 브라우저입니다.");
