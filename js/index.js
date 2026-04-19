@@ -53,5 +53,30 @@ document.addEventListener("DOMContentLoaded",()=>{
         statusMenu = false
     })
 
+    const imageContainers = document.querySelectorAll('.image-container');
+
+    imageContainers.forEach(container => {
+        container.addEventListener('click', function(e) {
+            // 1. 현재 클릭한 것 외에 이미 'show-text'가 붙어있는 다른 요소들을 찾아 클래스 제거
+            imageContainers.forEach(other => {
+                if (other !== this) {
+                    other.classList.remove('show-text');
+                }
+            });
+
+            // 2. 현재 클릭한 요소의 클래스 토글
+            this.classList.toggle('show-text');
+            
+            // 3. (선택사항) 클릭 이벤트가 부모로 퍼지는 것 방지
+            e.stopPropagation();
+        });
+    });
+
+    // 4. 사진 외에 빈 바탕(body)을 누르면 모든 텍스트 닫기
+    document.addEventListener('click', () => {
+        imageContainers.forEach(container => {
+            container.classList.remove('show-text');
+        });
+    });
 
 })

@@ -218,7 +218,7 @@ p{
     grid-template-columns: 1fr 1fr;
 }
 .co ul li{
-    border: 2px solid #A5CD9C;
+    border: 2px solid #a5cd9c5d;
 }
 /* 글래스모피즘(유리재질) 리스트 스타일 */
 /* .co ul li {
@@ -371,6 +371,7 @@ p{
     font-weight: 700;
     margin-bottom: 0.5rem;
     text-align: center;
+    color: #4A5447;
 }
 .popup h2+p{
     text-align: center;
@@ -401,12 +402,51 @@ p{
     height: 100%;
     object-fit: cover;
 }
+.image-container {
+  position: relative; 
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+.image-container img {
+  display: block;
+  width: 100%;
+  transition: transform 0.5s ease; 
+}
+.overlay-text {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.overlay-text p{
+    color: #ffff;
+    overflow-wrap: break-word;
+
+}
+.image-container.show-text .overlay-text {
+  opacity: 1;
+}
+.image-container.show-text img {
+  transform: scale(1.1); 
+}
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 포스터섹션--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .poster {
     padding-top: 6rem;
-    border-top: 1px solid #3437c5;
+    border-top: 1px solid #c53451;
 }
 .poster .common-frame{
     display: flex;
@@ -424,6 +464,7 @@ p{
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    color: #4A5447;
 }
 .poster-title h2+p{
     font-size:1.5rem;
@@ -466,10 +507,10 @@ p{
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 배너디자인섹션------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-.banner{
-    padding:6rem 0;
-    background-color: #e6ffd8;
-    color:#4A5447;
+.banner {
+    padding: 6rem 0;
+    background-color:  #4A5447;
+    color: #ffffff;
     text-align: center;
     margin-top: 6rem;
 }
@@ -477,13 +518,16 @@ p{
     font-size:3rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 .banner h2+p{
     font-size:1.5rem;
     margin-bottom: 3rem;
+    color: #ffffff;
 }
 .banner h2+p+p{
     margin-bottom: 3rem;
+    color: #ffffff;
 }
 
 
@@ -498,9 +542,10 @@ p{
     font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;
+    color: #4A5447;
 }
 .detail h2+p{
-    font-size:3rem;
+    font-size:1.5rem;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -639,13 +684,14 @@ p{
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 프로젝트 섹션------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .project h2{
-    font-size:5rem;
+    font-size:3rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;
+    color: #4A5447;
 }
 .project h2+p{
-    font-size:3rem;
+    font-size:1.5rem;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -699,6 +745,7 @@ p{
     font-size:3rem;
     font-weight: 700;
     margin-bottom: 3rem;
+    color: #4A5447;
 }
 .project-content h4+p{
     margin-bottom: 1.5rem;
@@ -727,8 +774,8 @@ p{
 }
 
 .contact{
-    background-color: #000;
-    color:#fff;
+    
+    /* color:#fff; */
     padding:6rem 0 8rem;
     text-align: center;
 }
@@ -740,7 +787,8 @@ p{
     top:30vh;
     left:0;
     mix-blend-mode: difference;
-    opacity: 0.2;
+    opacity: 0.4;
+    color:#4A5447;
 }
 .contact h2{
     font-size: 2rem;
@@ -765,6 +813,7 @@ p{
     background-color: #fff;
     color:#000;
 }
+
 
 .contact h3{
     margin-top: 3rem;
