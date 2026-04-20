@@ -1,3 +1,6 @@
+@media (min-width:1920px){
+    html{width:1920px;margin:0 auto;}
+}
 html{
     font-family: 'Pretendard',sans-serif;
     font-size: var(--basic-font-pc);
@@ -315,12 +318,13 @@ p{
     height: 1.2rem;
     /* 아이콘은 높이 주고 무조건 rem으로 할 것 너비 주지 말것*/
 }
-.skill-grid h4{
+.skill-grid h4 {
     font-weight: 700;
     padding-bottom: 1rem;
     margin-top: 1rem;
     border-bottom: 1px solid #000;
     text-transform: capitalize;
+    margin-bottom: 1rem;
 }
 .glass-box {
     padding: 10px;
@@ -750,14 +754,14 @@ p{
 .project-content h4+p{
     margin-bottom: 1.5rem;
 }
-.project-sticky{
+.project-sticky {
     display: flex;
     justify-content: center;
-    gap:1rem;
+    gap: 1rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
     position: sticky;
-    top:1rem;
+    top: 1.5rem;
     font-weight: 500;
 }
 .project-sticky a{
@@ -774,8 +778,7 @@ p{
 }
 
 .contact{
-    
-    /* color:#fff; */
+    background-color: #ffffffab;
     padding:6rem 0 8rem;
     text-align: center;
 }
@@ -1246,6 +1249,12 @@ p{
     .popup h2+p+p{
         text-align: center;
         margin-bottom: 5rem;
+    }
+    .popup .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: AUTO;
     }
 }
 
