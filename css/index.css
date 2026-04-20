@@ -791,6 +791,7 @@ p{
     mix-blend-mode: difference;
     opacity: 0.4;
     color:#4A5447;
+    pointer-events: none;
 }
 .contact h2{
     font-size: 2rem;
